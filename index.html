@@ -1,1 +1,88 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <title>Χρονολόγιο του Αλεξάνδρου</title>
+  <style>
+    body {
+      background-color: black;
+      color: gold;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+    }
+    .slide {
+      display: none;
+      padding: 20px;
+      font-size: 1.4em;
+    }
+    .active {
+      display: block;
+    }
+    button {
+      background-color: gold;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 1em;
+      margin: 20px;
+    }
+    button:disabled {
+      background-color: grey;
+      cursor: default;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    .credits {
+      font-size: 1em;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Χρονολόγιο του Αλεξάνδρου</h1>
+  <div class="credits">Δημιουργία: Παναγιώτης Δόμβρος 2025 (CC BY-NC)</div>
+
+  <div class="slide active">336 π.Χ.: Ο Αλέξανδρος γίνεται βασιλιάς μετά τη δολοφονία του Φιλίππου. Καταστέλλει εξεγέρσεις και καταστρέφει τη Θήβα.</div>
+  <div class="slide">334 π.Χ.: Έναρξη της εκστρατείας. Μάχη του Γρανικού ποταμού. Κατάκτηση Μικράς Ασίας.</div>
+  <div class="slide">333 π.Χ.: Μάχη της Ισσού. Νίκη κατά του Δαρείου. Αιχμαλωσία της οικογένειας του Δαρείου.</div>
+  <div class="slide">332 π.Χ.: Πολιορκία Τύρου. Είσοδος στην Αίγυπτο. Ίδρυση της Αλεξάνδρειας. Επίσκεψη στο Μαντείο του Άμμωνα.</div>
+  <div class="slide">331 π.Χ.: Μάχη στα Γαυγάμηλα. Κατάληψη Βαβυλώνας, Σούσας και Περσέπολης.</div>
+  <div class="slide">330 π.Χ.: Δολοφονία Δαρείου από τον Βήσσο. Ο Αλέξανδρος τιμωρεί τον Βήσσο για προδοσία και ανακηρύσσεται διάδοχος του Δαρείου.</div>
+  <div class="slide">329-327 π.Χ.: Κατάκτηση Σογδιανής και Βακτριανής. Ο "Σογδιανός Βράχος" ήταν ένα απόρθητο οχυρό που κατέλαβε ο Αλέξανδρος με αιφνιδιασμό.</div>
+  <div class="slide">327 π.Χ.: Ο Αλέξανδρος παντρεύεται τη Ρωξάνη, κόρη τοπικού ηγεμόνα, ενισχύοντας τις σχέσεις με τη Βακτρία.</div>
+  <div class="slide">327-325 π.Χ.: Εκστρατεία στην Ινδία. Μάχη στον Υδάσπη ποταμό. Νίκη κατά του Πώρου. Ίδρυση πόλεων.</div>
+  <div class="slide">325 π.Χ.: Επιστροφή από Ινδία μέσω της ερήμου Γεδρωσίας με μεγάλες απώλειες.</div>
+  <div class="slide">324 π.Χ.: Γάμος του Αλεξάνδρου με τη Στάτειρα, κόρη του Δαρείου. Στόχος ήταν να εδραιώσει την κυριαρχία του στους Πέρσες. Η Στάτειρα ήταν πολιτικός γάμος. Παράλληλα, ο Αλέξανδρος είχε παντρευτεί τη Ρωξάνη, την οποία αγάπησε και μαζί της απέκτησε γιο. Μετά τον θάνατο του Αλεξάνδρου, η Ρωξάνη φρόντισε να εξοντωθεί η Στάτειρα για να εξασφαλίσει τη θέση της.</div>
+  <div class="slide">324 π.Χ.: Ο Ηφαιστίωνας πεθαίνει από αιφνίδιο πυρετό στην Εκβάτανα, προκαλώντας τεράστια θλίψη στον Αλέξανδρο.</div>
+  <div class="slide">323 π.Χ.: Θάνατος του Αλεξάνδρου στη Βαβυλώνα σε ηλικία 32 ετών. Αιτίες: πιθανή ασθένεια ή δηλητηρίαση.</div>
+
+  <button id="nextBtn" onclick="nextSlide()">Επόμενο</button>
+  <br>
+  <a href="https://www.greek-language.gr/Resources/ancient_greek/history/art/page_124.html" target="_blank">
+    <button>Το ψηφιδωτό του Μεγάλου Αλεξάνδρου</button>
+  </a>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function nextSlide() {
+      slides[currentSlide].classList.remove('active');
+      currentSlide++;
+      if (currentSlide < slides.length) {
+        slides[currentSlide].classList.add('active');
+        if (currentSlide === slides.length - 1) {
+          nextBtn.textContent = 'Τέλος';
+        }
+      } else {
+        nextBtn.disabled = true;
+      }
+    }
+  </script>
+</body>
+</html>
 
